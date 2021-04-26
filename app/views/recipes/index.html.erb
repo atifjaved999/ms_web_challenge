@@ -1,0 +1,18 @@
+<h1>All Recipes</h1>
+
+<table border='1'>
+  <% @recipes.each do |recipe| %>
+  <tr>
+    <th>Title:</th>
+    <td colspan="2"><%= recipe.title %></td>
+  </tr>
+  <tr>
+    <th>Image:</th>
+    <td><img src="<%= recipe.photo.image_url %>" width="300" height="150" />
+    </td>
+    <td>
+      <a href="<%= recipe_path(recipe.id) %>">View Details</a>
+    </td>
+  </tr>
+  <% end %>
+</table>

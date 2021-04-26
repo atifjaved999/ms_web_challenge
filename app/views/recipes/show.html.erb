@@ -1,0 +1,38 @@
+<h1>Recipe Detail</h1>
+
+<table border='1'>
+  <tr>
+    <th>Title:</th>
+    <td><%= @recipe.title %></td>
+  </tr>
+  <tr>
+    <th>Image:</th>
+    <td><img src="<%= @recipe.photo.image_url %>" width="400" height="200" /></td>
+  </tr>  
+  <tr>
+    <th rowspan="2">List of Tags:</th>
+  </tr>
+  <tr>
+    <td>
+      <% if @recipe.fields[:tags].present? %>
+        <ul>
+          <% @recipe.tags.each do |tag| %>
+            <li><%= tag.fields[:name] %></li>
+          <% end %>
+        <ul/>
+      <% else %>
+        <span>N/A</span>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>Description:</th>
+    <td><%= @recipe.description %></td>
+  </tr>
+  <tr>
+    <th>Chef Name:</th>
+    <td><%= @recipe.chef.name rescue 'N/A' %></td>
+  </tr>
+</table>
+<br>
+<a href="<%= recipes_path %>">Back to All Recipes</a>
